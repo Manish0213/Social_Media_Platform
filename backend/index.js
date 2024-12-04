@@ -11,12 +11,12 @@ const path = require('path');
 const uploadsPath = path.join(__dirname, 'uploads');
 
 app.use(cors({
-  origin: ['http://localhost:3000','https://chatapp-nine-gray.vercel.app'], 
+  origin: ['http://localhost:3000','https://social-media-platform-client.vercel.app'], 
   methods: ['GET','PUT','POST','DELETE'],
   credentials: true,
 }));
 
-app.use(cors())
+// app.use(cors())
 app.use(express.json());
 
 // Use express.static to serve the files
