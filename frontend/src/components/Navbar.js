@@ -23,7 +23,7 @@ const Navbar = ({ loggedInUser }) => {
             <img
               src={
                 JSON.parse(localStorage.getItem("loggedInUser"))?.profileImage
-                  ? `${process.env.process.env.REACT_APP_API_URL}/uploads/${
+                  ? `${process.env.REACT_APP_API_URL}/uploads/${
                       JSON.parse(localStorage.getItem("loggedInUser"))
                         .profileImage
                     }`
