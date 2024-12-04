@@ -1,0 +1,953 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* --------------------SEARCH COMPONENT CSS  ----------------------- */
+
+/* Container styling */
+.search-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Search bar styling */
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* User list styling */
+.user-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.user-list li:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* --------------------USER PROFILE COMPONENT CSS  ----------------------- */
+.profile-container {
+  width: 100%;
+}
+
+.user-profile-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.user-profile-header {
+  text-align: center;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.profile-description {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.friend-request-btn,
+.message-btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.friend-request-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.message-btn {
+  background-color: #008cba;
+  color: white;
+}
+
+/*------------------------------------ ReceivedRequests Component CSS ------------------------------*/
+
+.received-requests-container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.received-requests-container h3{
+  margin: 25px;
+}
+
+.friend-request {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.friend-request p {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.accept-btn,
+.reject-btn,
+.unfriend-btn {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.accept-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.unfriend-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+/* ---------------------FriendList Component CSS ------------------ */
+
+.friend-list-container {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.friend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.friend-item p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.friend-item button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.friend-item button.view-profile {
+  background-color: #4caf50;
+  color: white;
+}
+
+.friend-item button.remove-friend {
+  background-color: #f44336;
+  color: white;
+}
+
+/* ---------------------------------------------- */
+
+/* ChatBoard container */
+.chatboard-container {
+  display: flex;
+  flex-direction: column;
+  /* height: 88vh;  jaise hi 89vh kiya ek aur vertical scroll bar appear ho gyi */
+  height: calc(100vh - 64px);
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+/* Chat header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  /* background-color: #007bff; */
+  background-color: #01060a;
+  color: white;
+}
+
+.chat-user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-user-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Messages container */
+.messages-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px;
+}
+
+/* Message bubbles */
+.message-bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  margin: 5px 0;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.message-bubble.sent {
+  /* background-color: #007bff; */
+  background-color: #01060a;
+  color: white;
+  align-self: flex-end;
+}
+
+.message-bubble.received {
+  background-color: #e5e5ea;
+  color: black;
+  align-self: flex-start;
+}
+
+/* Input container */
+.input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  position: fixed;
+  bottom: 64px;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.message-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.send-btn {
+  margin-left: 10px;
+  padding: 8px 16px;
+  /* background-color: #007bff; */
+  background-color: #01060a;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.send-btn:hover {
+  background-color: #0056b3;
+}
+
+/* --------------------------------------------ChatList Component CSS ------------------------------- */
+
+/* Container for the chat list */
+.chatlist-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px; /*  isko isliye comment kiya kyuki padding dene se element display width se bahar ja rha h aur horizonal bar show ho rhi h*/
+  border-radius: 8px;
+}
+
+/* Heading for the chat list */
+.chatlist-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333; /* Dark text for better visibility */
+  text-align: center;
+}
+
+/* List styling */
+.chatlist-container ul {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual chat items */
+.chatlist-container ul li {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #fff; /* White background for each chat item */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Chat item hover effect */
+.chatlist-container ul li:hover {
+  background-color: #f0f0f0; /* Slightly darker background on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Styling for the participant name */
+.chatlist-container ul li span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+}
+
+/* ------------------------------------- CreatePost Component CSS ----------------------------------- */
+
+.create-post-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  height: calc(100vh - 64px);
+}
+
+.create-post-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-textarea,
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+/* Hide the default input */
+.hidden-input {
+  display: none;
+}
+
+.file-upload-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.file-icon-container {
+  display: flex;
+  gap: 15px;
+}
+
+/* Custom icon styling */
+.image-upload-icon {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25px;
+  color: #555;
+  cursor: pointer;
+}
+
+.submit-button {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #0ee2c9;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.submit-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 20px;
+  text-align: center;
+  color: #28a745;
+  font-size: 16px;
+}
+
+/* --------------------- Home Component CSS ------------------------ */
+
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-header h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.like-button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.like-button i {
+  font-size: 24px;
+}
+
+.post-card p {
+  margin: 5px 0;
+}
+
+/*------------------------------------ FriendList Component -------------------------------*/
+
+/* Container for the friend list */
+.friend-list-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Heading for the friend list */
+.friend-list-container h3 {
+  font-size: 1.5rem;
+  color: #333; 
+  margin-bottom: 15px;
+}
+
+/* Friend item styling */
+.friend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Friend name styling */
+.friend-item p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Message when no friends are found */
+.friend-list-container p {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* ----------------- signup css --------------------*/
+/* General styling for the signup form */
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Add some spacing for better readability */
+input::placeholder {
+  color: #aaa;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  .form-container h2 {
+    font-size: 20px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+  }
+}
+
+/* Register link style */
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* -------------------------- MyProfile Component CSS --------------------- */
+/* Container styling */
+.my-profile-container {
+  width: 100%;
+  margin: 50px auto;
+  padding: 15px;
+}
+
+/* Profile header section */
+.profile-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid #4caf50;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-description {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+/* Action buttons */
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 20px;  /* top aur bottom ke liye */
+}
+
+.edit-profile-btn,
+.logout-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-profile-btn:hover {
+  background-color: #45a049;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
+}
+
+.logout-btn i {
+  font-size: 24px;
+}
+
+.edit-profile-btn i {
+  font-size: 24px;
+}
+
+.friends-action-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0px;
+}
+
+.action-box {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: calc(50% - 10px);;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background-color: #f9f9f9;
+  text-decoration: none;
+  color: inherit;
+}
+
+.action-box i {
+  font-size: 20px;
+}
+
+/* --------------------------- EditProfile Component CSS ----------------------- */
+
+.edit-profile-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.edit-profile-container h2 {
+  margin-bottom: 20px;
+}
+
+.profile-image-section {
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.upload-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-profile-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.edit-profile-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.edit-profile-form input,
+.edit-profile-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.save-profile-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --------------------MyPosts COMPONENT CSS ------------------------------- */
+.user-post-container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+/* -------------------- ViewPost COMPONENT CSS --------------------- */
+
+.view-post-container {
+  padding: 20px;
+}
+
+.post-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.delete-icon {
+  background: none;
+  border: none;
+  color: #d9534f;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.post-image {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* --------------------Navbar COMPONENT CSS  ----------------------- */
+/* .navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} */
+
+/* Main navbar container */
+.navbar {
+  position: fixed; /* Fix navbar to the bottom */
+  bottom: 0; /* Align it to the bottom */
+  left: 0; /* Start from the left */
+  width: 100%; /* Full width */
+  background-color: #fff; /* Background color */
+  display: flex;
+  justify-content: space-around; /* Space between icons */
+  align-items: center;
+  padding: 10px 0; /* Padding for spacing */
+  border-top: 1px solid #ddd; /* Optional border at the top */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+/* Navbar links container */
+.navbar-links {
+  display: flex;
+  gap: 50px; /* Space between icons */
+}
+
+/* Individual link styling */
+.navbar-links a {
+  text-decoration: none;
+  color: #555; /* Default icon color */
+  font-size: 24px; /* Icon size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-links a:hover {
+  color: #007bff; /* Hover color */
+}
+
+/* Profile icon styling */
+.navbar-profile img {
+  height: 40px; /* Adjust profile image size */
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd; /* Optional border */
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.navbar-profile img:hover {
+  border-color: #007bff; /* Border color on hover */
+}
