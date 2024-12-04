@@ -9,7 +9,6 @@ const setupSocket = (server) => {
     transports: ["websocket", "polling"],
     cors: {
       origin: "https://social-media-platform-client.vercel.app",
-      // origin: "https://localhost:3000",
       methods: ["GET", "POST"],
       allowedHeaders: ["Content-Type"],
     },
