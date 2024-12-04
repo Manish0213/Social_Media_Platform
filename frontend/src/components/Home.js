@@ -22,7 +22,7 @@ const Home = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/post/friends-posts", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/post/friends-posts`, {
         headers: {
           token: localStorage.getItem("token"),
         },
@@ -48,7 +48,7 @@ const Home = () => {
   const handleLike = async (postId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/post/like/${postId}`,
+        `${process.env.REACT_APP_API_URL}/post/like/${postId}`,
         {
           method: "POST",
           headers: {
@@ -78,7 +78,7 @@ const Home = () => {
                 <img
                   src={
                     post.user.profileImage
-                      ? `http://localhost:5000/uploads/${post.user.profileImage}`
+                      ? `${process.env.REACT_APP_API_URL}/uploads/${post.user.profileImage}`
                       : userImage
                   }
                   alt="User"
@@ -98,7 +98,7 @@ const Home = () => {
             <p>{post.content}</p>
             {post.image && (
               <img
-                src={`http://localhost:5000/${post.image}`}
+                src={`${process.env.REACT_APP_API_URL}/${post.image}`}
                 alt="Post"
                 className="post-image"
               />

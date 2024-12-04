@@ -40,7 +40,7 @@ function App() {
   }, [token]);
 
   const fetchAllUsers = async () => {
-    const response = await fetch("http://localhost:5000/auth/userlist");
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/userlist`);
     const data = await response.json();
     setUsers(data);
   };
@@ -63,7 +63,7 @@ function App() {
   // Setup Socket.IO connection
   useEffect(() => {
     if (loggedInUser) {
-      const newSocket = io("http://localhost:5000", {
+      const newSocket = io(`${process.env.REACT_APP_SOCKET_URL}`, {
         query: { userId: loggedInUser._id },
         path: "/socket",
         reconnection: true,

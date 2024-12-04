@@ -10,11 +10,17 @@ const port = 5000
 const path = require('path');
 const uploadsPath = path.join(__dirname, 'uploads');
 
-// Use express.static to serve the files
-app.use('/uploads', express.static(uploadsPath));
+app.use(cors({
+  origin: ['http://localhost:3000','https://chatapp-nine-gray.vercel.app'], 
+  methods: ['GET','PUT','POST','DELETE'],
+  credentials: true,
+}));
 
 app.use(cors())
 app.use(express.json());
+
+// Use express.static to serve the files
+app.use('/uploads', express.static(uploadsPath));
 
 connectToDatabase();
 

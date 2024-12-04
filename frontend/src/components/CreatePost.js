@@ -29,7 +29,7 @@ const CreatePost = () => {
       setMessage("");
 
       // Make POST request using fetch
-      const response = await fetch("http://localhost:5000/post/createpost", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/post/createpost`, {
         method: "POST",
         body: data,
         headers: {

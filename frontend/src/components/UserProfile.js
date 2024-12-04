@@ -18,7 +18,7 @@ const UserProfile = ({ id, users, socket }) => {
 
   const checkStatus = async () => {
     const response = await fetch(
-      `http://localhost:5000/friend/getfriendrequest/${id}/${loggedInUser._id}`
+      `${process.env.REACT_APP_API_URL}/friend/getfriendrequest/${id}/${loggedInUser._id}`
     );
     const data = await response.json();
     console.log(data);
@@ -28,7 +28,7 @@ const UserProfile = ({ id, users, socket }) => {
 
   const handleAcceptRequest = async () => {
     const response = await fetch(
-      `http://localhost:5000/friend/accept-request`,
+      `${process.env.REACT_APP_API_URL}/friend/accept-request`,
       {
         method: "POST",
         headers: {
@@ -43,7 +43,7 @@ const UserProfile = ({ id, users, socket }) => {
 
   const handleRejectRequest = async () => {
     const response = await fetch(
-      `http://localhost:5000/friend/reject-request/${friendStatus._id}`,
+      `${process.env.REACT_APP_API_URL}/friend/reject-request/${friendStatus._id}`,
       {
         method: "DELETE",
         headers: {
@@ -58,7 +58,7 @@ const UserProfile = ({ id, users, socket }) => {
   const handleCancelRequest = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/friend/cancel-request/${friendStatus._id}`,
+        `${process.env.REACT_APP_API_URL}/friend/cancel-request/${friendStatus._id}`,
         {
           method: "DELETE",
           headers: {
@@ -74,7 +74,7 @@ const UserProfile = ({ id, users, socket }) => {
   };
 
   const handleSendRequest = async () => {
-    const response = await fetch(`http://localhost:5000/friend/send-request`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/friend/send-request`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -89,7 +89,7 @@ const UserProfile = ({ id, users, socket }) => {
   const handleUnfriend = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/friend/unfriend/${friendStatus._id}`,
+        `${process.env.REACT_APP_API_URL}/friend/unfriend/${friendStatus._id}`,
         {
           method: "DELETE",
           headers: {
@@ -106,7 +106,7 @@ const UserProfile = ({ id, users, socket }) => {
 
   const handleUserClick = async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/chat/createChat`,
+      `${process.env.process.env.REACT_APP_API_URL}/chat/createChat`,
       {
         method: "POST",
         headers: {
@@ -128,7 +128,7 @@ const UserProfile = ({ id, users, socket }) => {
         <img
           src={
             user.profileImage
-              ? `http://localhost:5000/uploads/${user.profileImage}`
+              ? `${process.env.REACT_APP_API_URL}/uploads/${user.profileImage}`
               : userImage
           }
           alt="User Profile"

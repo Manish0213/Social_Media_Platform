@@ -26,7 +26,7 @@ const MyProfile = ({setLoggedInUser}) => {
         <img
           src={
             userData.profileImage
-              ? `http://localhost:5000/uploads/${userData.profileImage}`
+              ? `${process.env.REACT_APP_API_URL}/uploads/${userData.profileImage}`
               : user
           }
           alt="Profile"

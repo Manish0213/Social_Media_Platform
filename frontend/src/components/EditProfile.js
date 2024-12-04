@@ -9,7 +9,7 @@ const EditProfile = () => {
   }, []);
 
   const fetchUserProfile = async () => {
-    const response = await fetch(`http://localhost:5000/auth/profile`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/profile`, {
       headers: {
         token: localStorage.getItem("token"),
       },
@@ -18,7 +18,7 @@ const EditProfile = () => {
     setUserData(data);
     setImagePreview(
       data.profileImage
-        ? `http://localhost:5000/uploads/${data.profileImage}`
+        ? `${process.env.REACT_APP_API_URL}/uploads/${data.profileImage}`
         : "https://via.placeholder.com/150"
     );
   };
@@ -34,7 +34,7 @@ const EditProfile = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/auth/profile", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/profile`, {
         method: "PUT", // Update profile
         headers: {
           token: localStorage.getItem("token"),

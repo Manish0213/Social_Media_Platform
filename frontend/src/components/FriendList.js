@@ -11,7 +11,7 @@ const FriendList = () => {
   const fetchFriends = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/friend/friends/${loggedInUser._id}`
+        `${process.env.REACT_APP_API_URL}/friend/friends/${loggedInUser._id}`
       );
       const data = await response.json();
       if (data) {

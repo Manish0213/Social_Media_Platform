@@ -11,7 +11,7 @@ const ReceivedRequests = () => {
   const fetchReceivedRequests = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/friend/received-requests/${loggedInUser._id}`
+        `${process.env.REACT_APP_API_URL}/friend/received-requests/${loggedInUser._id}`
       );
       const data = await response.json();
 
@@ -28,7 +28,7 @@ const ReceivedRequests = () => {
   const handleAcceptRequest = async (requestId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/friend/accept-request`,
+        `${process.env.REACT_APP_API_URL}/friend/accept-request`,
         {
           method: "POST",
           headers: {
@@ -52,7 +52,7 @@ const ReceivedRequests = () => {
   const handleRejectRequest = async (requestId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/friend/reject-request/${requestId}`,
+        `${process.env.REACT_APP_API_URL}/friend/reject-request/${requestId}`,
         {
           method: "DELETE",
           headers: {

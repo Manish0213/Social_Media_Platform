@@ -14,7 +14,7 @@ const ViewPost = () => {
 
   const fetchPost = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/post/post/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/post/post/${id}`, {
         headers: {
           token: localStorage.getItem("token"),
         },
@@ -31,7 +31,7 @@ const ViewPost = () => {
 
   const handleLike = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/post/like/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/post/like/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const ViewPost = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/post/delete-post/${id}`,
+        `${process.env.REACT_APP_API_URL}/post/delete-post/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -100,7 +100,7 @@ const ViewPost = () => {
             <img
               src={
                 post.user.profileImage
-                  ? `http://localhost:5000/uploads/${post.user.profileImage}`
+                  ? `${process.env.REACT_APP_API_URL}/uploads/${post.user.profileImage}`
                   : userImage
               }
               alt="User"
@@ -124,7 +124,7 @@ const ViewPost = () => {
         <p>{post.content}</p>
         {post.image && (
           <img
-            src={`http://localhost:5000/${post.image}`}
+            src={`${process.env.REACT_APP_API_URL}/${post.image}`}
             alt="Post"
             className="post-image"
           />

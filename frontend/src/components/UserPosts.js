@@ -17,7 +17,7 @@ const UserPosts = ({ id }) => {
   const fetchPosts = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/post/user-posts/${id}`
+        `${process.env.REACT_APP_API_URL}/post/user-posts/${id}`
       );
       const data = await response.json();
       setPosts(data);
@@ -44,7 +44,7 @@ const UserPosts = ({ id }) => {
                 <img
                   src={
                     post.user.profileImage
-                      ? `http://localhost:5000/uploads/${post.user.profileImage}`
+                      ? `${process.env.REACT_APP_API_URL}/uploads/${post.user.profileImage}`
                       : userImage
                   }
                   alt="User"
@@ -66,7 +66,7 @@ const UserPosts = ({ id }) => {
             <p>{post.content}</p>
             {post.image && (
               <img
-                src={`http://localhost:5000/${post.image}`}
+                src={`${process.env.REACT_APP_API_URL}/${post.image}`}
                 alt="Post"
                 className="post-image"
               />

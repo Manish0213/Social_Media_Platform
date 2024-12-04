@@ -16,7 +16,7 @@ const MyPosts = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/post/my-posts", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/post/my-posts`, {
         headers: {
           token: localStorage.getItem("token"),
         },
@@ -47,7 +47,7 @@ const MyPosts = () => {
               <img
                 src={
                   post.user.profileImage
-                    ? `http://localhost:5000/uploads/${post.user.profileImage}`
+                    ? `${process.env.REACT_APP_API_URL}/uploads/${post.user.profileImage}`
                     : userImage
                 }
                 alt="User"
@@ -69,7 +69,7 @@ const MyPosts = () => {
           <p>{post.content}</p>
           {post.image && (
             <img
-              src={`http://localhost:5000/${post.image}`}
+              src={`${process.env.REACT_APP_API_URL}/${post.image}`}
               alt="Post"
               className="post-image"
             />
