@@ -106,7 +106,7 @@ const UserProfile = ({ id, users, socket }) => {
 
   const handleUserClick = async () => {
     const response = await fetch(
-      `${process.env.process.env.REACT_APP_API_URL}/chat/createChat`,
+      `${process.env.REACT_APP_API_URL}/chat/createChat`,
       {
         method: "POST",
         headers: {
